@@ -16,6 +16,7 @@ export default createGlobalStyle`
     margin: 0;
     font-family: system-ui;
     background-color: var(--color-dark);
+  
     color: var(--color-light);
   }
 

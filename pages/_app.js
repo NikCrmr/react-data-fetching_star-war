@@ -4,7 +4,7 @@ import { SWRConfig } from "swr";
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <SWRConfig value={{ fetcher }}>
+      <SWRConfig>
         <GlobalStyle />
         <Component {...pageProps} />
       </SWRConfig>

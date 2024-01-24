@@ -12,7 +12,7 @@ export default function Error() {
     <ErrorMessage>
       <h1>404</h1>
       <br />
-      <p>Page not found</p>
+      <p>@!# Page not found</p>
     </ErrorMessage>
   );
 }

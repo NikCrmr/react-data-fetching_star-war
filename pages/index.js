@@ -11,40 +11,29 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function HomePage() {
   const URL1 = `https://swapi.dev/api/people/`;
-  const { data: character, error, isLoading } = useSWR(URL1, fetcher);
-  console.log("index", character);
+  const { data: characters, error, isLoading } = useSWR(URL1, fetcher);
+  console.log("index", characters);
   if (isLoading) return <Loading />;
   if (error) return <ErrorMessage />;
 
   return (
-    <Layout>
-      <h1>React Data Fetching: Star Wars</h1>
-      <List>
-        <li>
-          <StyledLink href="/characters/1">{`Luke Skywalker`}</StyledLink>
-        </li>
-        <li>
-          <StyledLink href="/characters/2">C-3PO</StyledLink>
-        </li>
-        <li>
-          <StyledLink href="/characters/3">R2-D2</StyledLink>
-        </li>
-        <li>
-          <StyledLink href="/characters/4">Darth Vader</StyledLink>
-        </li>
-        <li>
-          <StyledLink href="/characters/5">Leia Organa</StyledLink>
-        </li>
-        <li>
-          <StyledLink
-            href="/characters/10
-          "
-          >
-            Obi-Wan Kenobi
-          </StyledLink>
-        </li>
-      </List>
-    </Layout>
+    <>
+      <StyledBlock />
+      <Layout>
+        <h1>React Data Fetching: Star Wars</h1>
+        <List>
+          {characters.results.map((character, index) => {
+            return (
+              <li key={uid}>
+                <StyledLink href={`characters/${index + 1}`}>
+                  {character.name}
+                </StyledLink>
+              </li>
+            );
+          })}
+        </List>
+      </Layout>
+    </>
   );
 }
 
@@ -69,6 +58,10 @@ const StyledLink = styled(Link)`
     border-radius: 12px;
     color: #e9c62d;
   }
+`;
+
+const StyledBlock = styled.div`
+  height: 10rem;
 `;
 
 /*

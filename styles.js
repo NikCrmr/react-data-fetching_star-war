@@ -29,8 +29,8 @@ export default createGlobalStyle`
 
   /* HTML: <div class="loader"></div> */
 .loader {
-  width: 80px;
-  height: 40px;
+  width: 160px;
+  height: 80px;
   border-radius: 0 0 100px 100px;
   border: 5px solid #538a2d;
   border-top: 0;

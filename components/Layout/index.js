@@ -7,6 +7,8 @@ const StyledLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #f2be1c;
+  background-color: black;
 `;
 
 export default function Layout({ children }) {

@@ -49,7 +49,7 @@ export default function HomePage() {
 }
 
 const List = styled.ul`
-  background-color: var(--color-light);
+  background-color: black;
   list-style-type: "➡️ ";
   display: flex;
   flex-direction: column;
@@ -57,11 +57,18 @@ const List = styled.ul`
   padding: 1rem 2rem;
   border-radius: 5px;
   text-decoration: none;
+  transform: perspective(10px) rotateX(1deg);
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: var(--color-dark);
+  color: var(--color-warm);
+  &&:hover {
+    border: 1px solid var(--color-warm);
+    padding: 0.4rem;
+    border-radius: 12px;
+    color: #e9c62d;
+  }
 `;
 
 /*

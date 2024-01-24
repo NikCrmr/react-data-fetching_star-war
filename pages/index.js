@@ -24,7 +24,7 @@ export default function HomePage() {
         {characters.results.map((character, index) => {
           return (
             <li key={uid}>
-              <StyledLink href={`characters/${index + 1}`}>
+              <StyledLink prefetch href={`characters/${index + 1}`}>
                 {character.name}
               </StyledLink>
             </li>

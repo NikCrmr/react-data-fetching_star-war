@@ -3,6 +3,7 @@ import Card from "../../components/Card";
 import Layout from "../../components/Layout";
 import useSWR from "swr";
 import Loading from "@/components/Loading/Loading.styled";
+import ErrorMessage from "@/components/Error/Error.styled";
 import { useRouter } from "next/router";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -14,8 +15,8 @@ export default function Character() {
   const URL = `https://swapi.dev/api/people/${id}`;
   const { data, error, isLoading } = useSWR(URL, fetcher);
 
-  if (isLoading) return <Loading></Loading>;
-  if (error) return <p>error...@!#</p>;
+  if (isLoading) return <Loading />;
+  if (error) return <ErrorMessage />;
 
   return (
     <Layout>

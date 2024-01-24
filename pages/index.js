@@ -18,7 +18,8 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <h1>React Data Fetching: Star Wars</h1>
+      <h1>React Data Fetching:</h1>
+      <StyledSpan>@</StyledSpan>
       <List>
         {characters.results.map((character, index) => {
           return (
@@ -34,16 +35,22 @@ export default function HomePage() {
   );
 }
 
+const StyledSpan = styled.span`
+  font-family: "StarJedi Special Edition";
+  font-size: 5rem;
+`;
+
 const List = styled.ul`
   background-color: black;
-  list-style-type: "➡️ ";
+  list-style-type: "";
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem 2rem;
   border-radius: 5px;
   text-decoration: none;
-  transform: perspective(10px) rotateX(1deg);
+  transform: perspective(10px) rotateX(0deg);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 `;
 
 const StyledLink = styled(Link)`

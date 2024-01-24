@@ -10,7 +10,7 @@ const StyledLayout = styled.div`
   color: #f2be1c;
   text-align: center;
   background-color: black;
-  transform: perspective(10px) rotateX(1deg);
+  transform: perspective(10px) rotateX(2deg);
 `;
 
 export default function Layout({ children }) {

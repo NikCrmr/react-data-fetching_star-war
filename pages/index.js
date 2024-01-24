@@ -1,14 +1,29 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Layout from "../components/Layout";
+import Loading from "@/components/Loading/Loading.styled";
+import ErrorMessage from "@/components/Error/Error.styled";
+import { useRouter } from "next/router";
+import useSWR from "swr";
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function HomePage() {
+  const router = useRouter();
+  const { id } = router.query;
+  //const linkUrl = `/characters/${id}`;
+  const URL = `https://swapi.dev/api/people/${id}`;
+  const { data: character, error, isLoading } = useSWR(URL, fetcher);
+
+  if (isLoading) return <Loading />;
+  if (error) return <ErrorMessage />;
+
   return (
     <Layout>
       <h1>React Data Fetching: Star Wars</h1>
       <List>
         <li>
-          <StyledLink href="/characters/1">Luke Skywalker</StyledLink>
+          <StyledLink href="/characters/1">{character.name}</StyledLink>
         </li>
         <li>
           <StyledLink href="/characters/2">C-3PO</StyledLink>
@@ -18,6 +33,9 @@ export default function HomePage() {
         </li>
         <li>
           <StyledLink href="/characters/4">Darth Vader</StyledLink>
+        </li>
+        <li>
+          <StyledLink href="/characters/5">Leia Organa</StyledLink>
         </li>
       </List>
     </Layout>
@@ -39,3 +57,20 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: var(--color-dark);
 `;
+
+/*
+<List>
+        <li>
+          <StyledLink href="/characters/1">Luke Skywalker</StyledLink>
+        </li>
+        <li>
+          <StyledLink href="/characters/2">C-3PO</StyledLink>
+        </li>
+        <li>
+          <StyledLink href="/characters/3">R2-D2</StyledLink>
+        </li>
+        <li>
+          <StyledLink href="/characters/4">Darth Vader</StyledLink>
+        </li>
+      </List>
+*/

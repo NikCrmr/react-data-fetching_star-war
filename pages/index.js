@@ -3,18 +3,16 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import Loading from "@/components/Loading/Loading.styled";
 import ErrorMessage from "@/components/Error/Error.styled";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import useSWR from "swr";
+import { uid } from "uid";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function HomePage() {
-  const router = useRouter();
-  const { id } = router.query;
-  //const linkUrl = `/characters/${id}`;
-  const URL = `https://swapi.dev/api/people/${id}`;
-  const { data: character, error, isLoading } = useSWR(URL, fetcher);
-
+  const URL1 = `https://swapi.dev/api/people/`;
+  const { data: character, error, isLoading } = useSWR(URL1, fetcher);
+  console.log("index", character);
   if (isLoading) return <Loading />;
   if (error) return <ErrorMessage />;
 
@@ -23,7 +21,7 @@ export default function HomePage() {
       <h1>React Data Fetching: Star Wars</h1>
       <List>
         <li>
-          <StyledLink href="/characters/1">{character.name}</StyledLink>
+          <StyledLink href="/characters/1">{`Luke Skywalker`}</StyledLink>
         </li>
         <li>
           <StyledLink href="/characters/2">C-3PO</StyledLink>
@@ -36,6 +34,14 @@ export default function HomePage() {
         </li>
         <li>
           <StyledLink href="/characters/5">Leia Organa</StyledLink>
+        </li>
+        <li>
+          <StyledLink
+            href="/characters/10
+          "
+          >
+            Obi-Wan Kenobi
+          </StyledLink>
         </li>
       </List>
     </Layout>

@@ -15,7 +15,7 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: system-ui;    
+    font-family: "Star Jedi Special Edition";    
     background-image: url("/starry-sky-2675322_640.jpg");
   background-size: cover;
     color: var(--color-light);

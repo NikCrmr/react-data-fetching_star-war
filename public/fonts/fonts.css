@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Star Jedi Outline";
+  src: url("/fonts/StarJediOutline-y0xm.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Star Jedi Special Edition";
+  src: url("/fonts/StarjediSpecialEdition-9Bqy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

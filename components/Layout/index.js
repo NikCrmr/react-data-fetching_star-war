@@ -7,6 +7,10 @@ const StyledLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #f2be1c;
+  text-align: center;
+  background-color: black;
+  transform: perspective(10px) rotateX(1deg);
 `;
 
 export default function Layout({ children }) {

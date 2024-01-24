@@ -4,6 +4,7 @@ export default createGlobalStyle`
 :root {
   --color-dark: #111111;
   --color-light: #eeeeee;
+  --color-warm: #F2BE1C;
 }
 
   *,
@@ -15,7 +16,8 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: system-ui;    
+    font-family: "Star Jedi Outline"; 
+    letter-spacing: 0.3em;   
     background-image: url("/starry-sky-2675322_640.jpg");
   background-size: cover;
     color: var(--color-light);

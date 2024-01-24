@@ -18,39 +18,46 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <h1>React Data Fetching:</h1>
-      <StyledSpan>@</StyledSpan>
+      <h1>React Data Fetching: Star Wars</h1>
       <List>
+        <li>
+          <StyledLink href="/characters/12">12 Links</StyledLink>
+        </li>
         {characters.results.map((character, index) => {
           return (
             <li key={uid}>
-              <StyledLink href={`characters/${index + 1}`}>
+              <StyledLink href={{ path: `characters/${index + 1}` }}>
                 {character.name}
               </StyledLink>
             </li>
           );
         })}
+        <li>
+          <StyledLink href="/characters/1">Luke Skywalker</StyledLink>
+        </li>
+        <li>
+          <StyledLink href="/characters/2">C-3PO</StyledLink>
+        </li>
+        <li>
+          <StyledLink href="/characters/3">R2-D2</StyledLink>
+        </li>
+        <li>
+          <StyledLink href="/characters/4">Darth Vader</StyledLink>
+        </li>
       </List>
     </Layout>
   );
 }
 
-const StyledSpan = styled.span`
-  font-family: "StarJedi Special Edition";
-  font-size: 5rem;
-`;
-
 const List = styled.ul`
   background-color: black;
-  list-style-type: "";
+  list-style-type: "✨  ";
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem 2rem;
   border-radius: 5px;
   text-decoration: none;
-  transform: perspective(10px) rotateX(0deg);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 `;
 
 const StyledLink = styled(Link)`

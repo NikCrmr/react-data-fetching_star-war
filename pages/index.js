@@ -17,23 +17,20 @@ export default function HomePage() {
   if (error) return <ErrorMessage />;
 
   return (
-    <>
-      <StyledBlock />
-      <Layout>
-        <h1>React Data Fetching: Star Wars</h1>
-        <List>
-          {characters.results.map((character, index) => {
-            return (
-              <li key={uid}>
-                <StyledLink href={`characters/${index + 1}`}>
-                  {character.name}
-                </StyledLink>
-              </li>
-            );
-          })}
-        </List>
-      </Layout>
-    </>
+    <Layout>
+      <h1>React Data Fetching: Star Wars</h1>
+      <List>
+        {characters.results.map((character, index) => {
+          return (
+            <li key={uid}>
+              <StyledLink href={`characters/${index + 1}`}>
+                {character.name}
+              </StyledLink>
+            </li>
+          );
+        })}
+      </List>
+    </Layout>
   );
 }
 
@@ -58,10 +55,6 @@ const StyledLink = styled(Link)`
     border-radius: 12px;
     color: #e9c62d;
   }
-`;
-
-const StyledBlock = styled.div`
-  height: 10rem;
 `;
 
 /*
